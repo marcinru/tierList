@@ -5,6 +5,7 @@ document.querySelectorAll('.drop-zone').forEach(setupDropzone);
 
 function setupItem(item) {
   item.addEventListener('dragstart', onDrag);
+  item.addEventListener('dblclick', onDoubleClick);
 }
 
 function setupDropzone(dropzone) {
@@ -16,11 +17,17 @@ function setupDropzone(dropzone) {
 
 function onDrag(event) {
   draggedItem = event.target;
-  console.log(draggedItem.getAttribute('aria-label'));
 }
 
 function onDrop() {
   if (this !== draggedItem.parentNode) {
     this.appendChild(draggedItem);
+  }
+}
+
+function onDoubleClick() {
+  const zone = document.getElementById('unranked');
+  if (zone !== this.parentNode) {
+    zone.appendChild(this);
   }
 }
