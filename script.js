@@ -9,9 +9,7 @@ function setupItem(item) {
 }
 
 function setupDropzone(dropzone) {
-  dropzone.addEventListener('dragover', function (event) {
-    event.preventDefault();
-  });
+  dropzone.addEventListener('dragover', (e) => e.preventDefault());
   dropzone.addEventListener('drop', onDrop);
 }
 
